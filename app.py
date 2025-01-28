@@ -697,4 +697,4 @@ def profile():
                     return render_template('profile.html',pdata=pdata,data=data,headings=headings)
 
 if __name__ == '__main__':
-    app.run(debug=True,port=9999)
+    app.run(host="0.0.0.0",port=9999)
