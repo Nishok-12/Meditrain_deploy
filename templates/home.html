@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediTrain AI</title>
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="{{ url_for('static', filename='css/hstyle.css') }}"
+    />
+</head>
+<body>
+    <div class="container">
+        <div class="glass-box">
+            <h1 class="title">MediTrain AI</h1>
+            <h3 class="subtitle">Your Virtual Medical Assistant</h3>
+            <p class="about-text">
+                MediTrain AI is an advanced medical assistant designed to revolutionize healthcare by providing intelligent, accurate, and personalized solutions. 
+                It empowers both doctors and patients by leveraging advancements in Artificial Intelligence and Natural Language Processing. With MediTrain AI, 
+                users can experience seamless interaction, real-time diagnosis, tailored treatment suggestions, and communication that bridges the gap 
+                between technology and healthcare. Step into the future of healthcare with MediTrain AI and transform the way you experience medical assistance!
+            </p>
+            <div class="button-group">
+                <a href="{{ url_for('lpage') }}" class="button">Login</a>
+                <a href="{{ url_for('index') }}" class="button">Quick Chat as Patient</a>
+                <a href="{{ url_for('pindex') }}" class="button">Quick Chat as Doctor</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

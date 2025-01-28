@@ -1,0 +1,106 @@
+/* Inherit previous styles for body, html, container */
+body, html {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, rgb(38, 10, 91), rgb(60, 0, 91), rgb(30, 10, 50));
+    animation: gradient-shift 10s ease infinite;
+    font-family: Arial, sans-serif;
+}
+
+/* Gradient animation */
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* Glassmorphic box styling */
+.glass-box {
+    height: 55vh;
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 20px; /* Reduced padding to decrease space */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 2px solid rgba(182, 151, 255, 0.5);
+    box-shadow: 0 0 30px rgba(170, 85, 255, 0.5), 0 0 60px rgba(170, 85, 255, 0.4);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Glow effect intensifies on hover */
+.glass-box:hover {
+    box-shadow: 0 0 40px rgba(170, 85, 255, 0.7), 0 0 80px rgba(170, 85, 255, 0.6);
+}
+
+/* Title with glow */
+.title {
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 1px; /* Adjusted margin to bring the title closer */
+    text-shadow: 0 0 10px rgba(182, 151, 255, 1), 0 0 20px rgba(170, 85, 255, 1);
+}
+
+/* Subtitle with glow */
+.subtitle {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(182, 151, 255, 0.8);
+}
+
+/* About text with glow */
+.about-text {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 27px;
+    padding: 0 10px;
+    padding-bottom: 30px;
+    text-shadow: 0 0 5px rgba(182, 151, 255, 0.7);
+}
+
+/* Button group styling */
+.button-group {
+    display: flex;
+    gap: 30px;
+}
+
+/* Buttons with glowing effect */
+.button {
+    background-color: rgba(170, 85, 255, 0.8);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 15px 60px; /* Increased padding for larger buttons */
+    font-size: 14.5px; /* Slightly larger font size */
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(170, 85, 255, 0.7), 0 0 25px rgba(170, 85, 255, 0.5);
+    width: 150px; /* Fixed width to ensure equal button size */
+    text-align: center;
+    display: inline-block;
+}
+
+/* Hover effect for buttons */
+.button:hover {
+    background-color: rgba(182, 151, 255, 1);
+    box-shadow: 0 0 20px rgba(182, 151, 255, 0.9), 0 0 30px rgba(182, 151, 255, 0.8);
+}

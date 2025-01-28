@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ pdata.name }}_Profile</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/pstyle.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="container-fluid h-100">
+      <div class="row">
+        <div class="chat">
+          <div class="card">
+            <div class="card-header msg_head">
+              <div class="d-flex bd-highlight">
+                <div class="img_cont">
+                  <img
+                    src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png"
+                    class="rounded-circle user_img"
+                  />
+                  <div class="online_icon"></div>
+                </div>
+                <div class="user_info">
+                  <div class="dd">MediTrain AI</div>
+                  <p>Your Virtual {{pdata.role}}</p>
+                </div>
+                <div class="ml-auto">
+                  <a href="{{pdata.url}}" class="btn btn-custom btn-custom-primary">
+                    New Chat
+                  </a>
+                  <a href="{{ url_for('logout') }}" class="btn btn-custom btn-custom-secondary">
+                    Logout
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div id="messageFormeight" class="card-body msg_card_body">
+              <div class="pro">
+                    <div class="pimage">
+                        <img src="{{ pdata['image'] }}" alt="Profile Image">
+                    </div>
+                    <div class="pid">
+                        <span>{{ pdata.roleas }} ID :&nbsp<strong> {{ pdata.patient_id }}</strong></span>
+                        <span>Name :&nbsp<strong> {{ pdata.name }}</strong></span>
+                        <span>Your Role :&nbsp<strong> {{ pdata.roleas }}</strong></span>
+                    </div>
+              
+                    <div class="p1">
+                        <span>Age :&nbsp<strong> {{ pdata.age }}</strong></span>
+                        <span>Gender :&nbsp</strong> {{ pdata.gender}}</strong></span>
+                        <span>Country :&nbsp</strong>{{ pdata.country }}</strong></span>
+                    </div>
+                    <div class="p2">
+                        <span>Contact Number:&nbsp<strong> {{ pdata.contact }}</strong></span>
+                        <span>Email :&nbsp<strong> {{ pdata.email }}</strong></span>
+                        <span>Location :&nbsp<strong> {{ pdata.location }}</strong></span>
+                    </div>
+                </div>    
+              <div class="history">Diagnosis History</div>
+              <div class="table">
+                <table>
+                    <tr>
+                      {% for header in headings %}
+                      <th>{{header}}</th>
+                      {% endfor %}
+                    </tr>
+                    {% for row in data %}
+                    <tr>
+                        {% for cell in row %}
+                        <td>{{cell}}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
