@@ -1,409 +1,160 @@
+/* Inherit previous styles for body, html, container */
 body, html {
-    height: 98%;
+    height: 100vh;
+    width: 100vw;
     margin: 0;
-    background: rgb(44, 47, 59);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: linear-gradient(135deg, rgb(38, 10, 91), rgb(60, 0, 91), rgb(30, 10, 50));
     animation: gradient-shift 10s ease infinite;
+    font-family: Arial, sans-serif;
 }
 
-/* Smooth gradient animation */
+/* Gradient animation */
 @keyframes gradient-shift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-
-
-.chat {
-    height: 100vh;
-    width: 100%;
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
-  
+    height: 100%;
+    width: 100%;
 }
 
-.card {
-    height: 100vh;
-    width: 100%;
-    border-radius: 0 !important;
-    background: rgba(0, 0, 0, 0.4) !important;
-    backdrop-filter: blur(10px);
+/* Glassmorphic box styling */
+.glass-box {
+    height: 55vh;
+    width: 70vw;
     display: flex;
     flex-direction: column;
-
-}
-
-.msg_card_body {
-    overflow-y: auto;
-    flex-grow: 1;
-    font-size: 16px;
-    color: white;
-    word-wrap: break-word;
-}
-
-.card-header, .card-footer {
-    border-radius: 0 !important;
-    border-bottom: 0 !important;
-    padding-top: 10px;
-    background: -webkit-linear-gradient(to right, rgb(38, 10, 91), rgb(60, 0, 91), rgb(30, 10, 50)); /* Purple gradient */
-    background: linear-gradient(to right, rgb(38, 10, 91), rgb(60, 0, 91), rgb(30, 10, 50)); /* Purple gradient */
-    color: white;
-    backdrop-filter: blur(10px);
-}
-
-.card-footer {
-    padding: 10px;
-}
-
-.type_msg {
-    background-color: rgba(0, 0, 0, 0.3) !important;
-    border: 0 !important;
-    color: white !important;
-    height: 45px !important;
-    overflow-y: auto;
-    padding: 10px;
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-    border-radius: 25px; /* Optional for a rounded input box */
-}
-
-.type_msg:focus {
-    box-shadow: none !important;
-    outline: 0px !important;
-}
-
-.send_btn {
-    border-radius: 50%;
-    background-color: rgba(170, 85, 255, 0.4); /* Soft purple background */
-    border: none;
-    color: white;
-    cursor: pointer;
-    height: 45px;
-    width: 45px;
-    display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.3s ease-in-out;
-    margin-left: 5px; /* Space between input box and button */
-}
-
-/* Send button hover effect with lavender glow */
-.send_btn:hover {
-    box-shadow: 0 0 10px rgba(182, 151, 255, 1); /* Lavender glow */
-    background-color: rgba(182, 151, 255, 0.8); /* Slightly brighter on hover */
-}
-
-/* Send button active (clicked) effect with lavender glow */
-.send_btn:active {
-    box-shadow: 0 0 20px rgba(182, 151, 255, 1); /* More intense lavender glow when clicked */
-    background-color: rgba(182, 151, 255, 1); /* Full lavender on click */
-}
-
-.user_img_msg {
-    height: 40px;
-    width: 40px;
-    border: 1.5px solid #f5f6fa;
-}
-
-.img_cont {
-    position: relative;
-    height: 50px; /* Smaller height */
-    width: 50px; /* Smaller width */
-}
-
-.user_img {
-    height: 100%; /* Ensure the image scales with the container */
-    width: 100%;
-    border: 1.5px solid #f5f6fa;
-    border-radius: 50%;
-    box-shadow: 0 0 2.5px 2.5px rgba(182, 151, 255, 0.9);
-}
-
-.online_icon {
-    position: absolute;
-    height: 13px;
-    width: 13px;
-    background-color: #4cd137;
-    border-radius: 50%;
-    bottom: 0;
-    right: 0;
-    border: 1.5px solid white;
-}
-
-.offline {
-    background-color: #c23616 !important;
-}
-
-.user_info {
-    padding-top: 2px;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 15px;
-}
-
-.dd {
-    font-size: 22px;
-    color: white;
-    text-shadow: 0 0 8px rgba(182, 151, 255, 1), 0 0 10px rgba(182, 151, 255, 1); /* Glow effect */
-}
-
-.user_info p {
-    font-size: 12.7px;
-    color: white;
-	padding-left: 7px;
-    text-shadow: 0 0 8px rgba(182, 151, 255, 1), 0 0 10px rgba(182, 151, 255, 1); /* Glow effect */
-}
-
-.msg_cotainer {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: 10px;
-    border-radius: 25px;
-    background-color: rgba(182, 151, 255, 0.4); /* Lavender glassmorphism */
-    padding: 10px;
-    position: relative;
-    white-space: pre-line;
-    max-width: 80vw;
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-}
-
-.msg_cotainer_send {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 10px;
-    border-radius: 25px;
-    background-color: rgba(170, 85, 255, 0.4); /* Soft purple for AI message */
-    padding: 10px;
-    position: relative;
-    white-space: pre-line;
-    max-width: 80vw;
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-}
-
-.msg_time {
-    position: absolute;
-    left: 0;
-    bottom: -15px;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 10px;
-}
-
-.msg_time_send {
-    position: absolute;
-    right: 0;
-    bottom: -15px;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 10px;
-}
-
-@media (max-width: 576px) {
-    .chat {
-        flex-direction: column;
-    }
-    
-}
-
-.btn-custom {
-    font-size: 14.4px;
-    padding: 10px 16px;
-    margin-right: 10px;
+    text-align: center;
+    padding: 10px 20px; /* Reduced padding to decrease space */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
     border-radius: 20px;
-    transition: all 0.3s ease-in-out;
-    margin-top: 10px;
+    border: 2px solid rgba(182, 151, 255, 0.5);
+    box-shadow: 0 0 30px rgba(170, 85, 255, 0.5), 0 0 60px rgba(170, 85, 255, 0.4);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
-.btn-custom-primary {
-    background-color: #6a1b9a; /* Purple */
+/* Glow effect intensifies on hover */
+.glass-box:hover {
+    box-shadow: 0 0 40px rgba(170, 85, 255, 0.7), 0 0 80px rgba(170, 85, 255, 0.6);
+}
+
+/* Title with glow */
+.title {
     color: white;
-    border: none;
-}
-
-.btn-custom-primary:hover {
-    background-color: #4a148c; /* Darker purple */
-	color: white;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1); /* Bright white glow effect */
-
-}
-
-.btn-custom-secondary {
-    background-color:red;
-    color: white;
-    border: none;
-}
-
-.btn-custom-secondary:hover {
-	background-color: #8B0000;  /* Darker purple */
-	color: white;
-
-}
-
-/* Styling the scrollbar */
-::-webkit-scrollbar {
-    width: 10px; /* Set the width of the scrollbar */
-    height: 10px; /* Set the height for horizontal scrollbar */
-}
-
-/* Styling the scrollbar track */
-::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.3); /* Dark track */
-    border-radius: 10px; /* Rounded corners */
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-}
-
-/* Styling the scrollbar handle */
-::-webkit-scrollbar-thumb {
-    background: rgba(182, 151, 255, 0.7); /* Lavender color for the thumb */
-    border-radius: 10px; /* Rounded corners */
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-}
-
-/* Styling the scrollbar handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(170, 85, 255, 0.9); /* Darker lavender when hovered */
-}
-
-.pro {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    margin-bottom: 20px;
-    background: rgba(182, 151, 255, 0.25); /* Lavender glassmorphism */
-    padding: 20px;
-    border-radius: 15px; /* Smooth rounded corners */
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    text-align: center;
-    transition: box-shadow 0.3s ease; 
-}
-
-.pro:hover {
-    box-shadow: 0 0 20px rgba(170, 85, 255, 0.7), 0 0 40px rgba(170, 85, 255, 0.6);
-}
-
-.pimage img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%; /* Circular image */
-    object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.7); /* Semi-transparent white border */
-    box-shadow: 0 0 4px 4px rgba(182, 151, 255, 0.9); /* Lavender glow */
-    margin-bottom: 15px; /* Spacing from the rest of the content */
-}
-
-
-
-.p1, .p2,.pid {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap within the container */
-    justify-content: space-between; /* Distribute spans across the row */
-    align-items: center; /* Center items vertically */
-    gap: 35px; /* Space between spans */
-    margin: 10px ;
-}
-
-span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(105,27,154,0.8);/* Semi-transparent white background */
-    color: rgba(255, 255, 255, 1); /* Soft white text */
-    text-shadow: 0 0 8px rgba(182, 151, 255, 1), 0 0 10px rgba(182, 151, 255, 1); /* Glow effect */
-    padding: 10px 15px;
-    border-radius: 30px; /* Rounded corners for each box */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for boxes */
-    font-size: 16px; /* Consistent text size */
-    font-weight: 500;
-    width: 450px; /* Set a fixed width for equal size */
-    height: 40px; /* Set a fixed height for equal size */
-    text-align: center;
-    flex-shrink: 0; /* Prevent spans from shrinking */
-    box-shadow: 0 0 2.5px 2.5px rgba(182, 151, 255, 0.9); /* Lavender glow */
-}
-
-.history {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    margin-bottom: 20px;
-    background: rgba(182, 151, 255, 0.25); /* Lavender glassmorphism */
-    padding: 10px;
-    border-radius: 25px; /* Smooth rounded corners */
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    text-align: center;
-    font-size: 22px;
+    font-size: 48px;
     font-weight: bold;
-    color: white; /* Set the text color */
-    text-shadow: 0 0 12px rgba(182, 151, 255, 1), 0 0 20px rgba(182, 151, 255, 1); /* Glow effect */
-    box-shadow: 0 0 10px rgba(170, 85, 255, 0.7), 0 0 20px rgba(170, 85, 255, 0.6);
+    margin-bottom: 1px; /* Adjusted margin to bring the title closer */
+    text-shadow: 0 0 10px rgba(182, 151, 255, 1), 0 0 20px rgba(170, 85, 255, 1);
 }
 
-/* Table Styling */
-.table {
-    margin: 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Stack rows vertically */
+/* Subtitle with glow */
+.subtitle {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(182, 151, 255, 0.8);
 }
 
-table {
-    width: 100%; /* Adjust the width as needed */
-    border-collapse: separate; /* Separate borders for rows */
-    border-spacing: 10px; /* Space between rows */
-    background: rgba(182, 151, 255, 0.25); /* Lavender glassmorphism */
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-    border-radius: 15px; /* Smooth rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-th, td {
-    padding: 15px;
-    text-align: center;
+/* About text with glow */
+.about-text {
+    color: rgba(255, 255, 255, 0.8);
     font-size: 16px;
-    color: white; /* Set the text color */
-    border-radius: 30px; /* Rounded corners for cells */
-    border-bottom: 1px solid rgba(182, 151, 255, 0.5); /* Soft border color */
+    line-height: 1.5;
+    margin-bottom: 27px;
+    padding: 0 10px;
+    padding-bottom: 30px;
+    text-shadow: 0 0 5px rgba(182, 151, 255, 0.7);
 }
 
-th {
-    font-size: 18px;
-    font-weight: bold; /* Bold text for table headers */
-    background: rgba(38, 10, 91, 0.5); /* Slightly darker background for headers */
-    text-shadow: 0 0 8px rgba(182, 151, 255, 1), 0 0 10px rgba(182, 151, 255, 1); /* Glow effect for headers */
+/* Button group styling */
+.button-group {
+    display: flex;
+    gap: 30px;
 }
 
-td {
-    font-weight: normal; /* Regular weight for table data */
+/* Buttons with glowing effect */
+.button {
+    background-color: rgba(170, 85, 255, 0.8);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 15px 60px; /* Increased padding for larger buttons */
+    font-size: 14.5px; /* Slightly larger font size */
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(170, 85, 255, 0.7), 0 0 25px rgba(170, 85, 255, 0.5);
+    width: 150px; /* Fixed width to ensure equal button size */
+    text-align: center;
+    display: inline-block;
 }
 
-/* Styling each row (tr) as a box */
-tr {
-    background: rgba(182, 151, 255, 0.35); /* Light lavender for rows */
-    padding: 10px; /* Padding inside each row */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow to make it appear as a box */
+/* Hover effect for buttons */
+.button:hover {
+    background-color: rgba(182, 151, 255, 1);
+    box-shadow: 0 0 20px rgba(182, 151, 255, 0.9), 0 0 30px rgba(182, 151, 255, 0.8);
 }
 
-/* Hover effect for rows */
-tr:not(:first-child):hover {
-    background-color: rgba(102, 51, 204, 0.7); /* Vibrant purple for hover */
-    cursor: pointer;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1); /* Bright white glow effect */
-    transform: scale(1.02); /* Slightly enlarge row on hover for emphasis */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .glass-box {
+        height: auto; /* Adjust height for smaller screens */
+        width: 90vw; /* Increase width to fill more space */
+        padding: 20px 15px; /* Adjust padding for better fit */
+    }
+
+    .title {
+        font-size: 36px; /* Reduce font size for smaller screens */
+    }
+
+    .subtitle {
+        font-size: 18px; /* Adjust font size for readability */
+    }
+
+    .about-text {
+        font-size: 14px; /* Smaller text for compact view */
+    }
+
+    .button {
+        padding: 10px 30px; /* Reduce padding for smaller buttons */
+        font-size: 12px; /* Adjust font size for buttons */
+        width: auto; /* Allow buttons to resize dynamically */
+    }
+
+    .button-group {
+        gap: 15px; /* Reduce gap between buttons */
+    }
 }
 
-/* Optional: Styling for the table container (if you want it to have a border) */
-.table {
-    border-radius: 15px;
-    overflow: hidden;
-    margin-top: 30px;
-    box-shadow: 0 0 10px rgba(170, 85, 255, 0.7), 0 0 20px rgba(170, 85, 255, 0.6);
+@media (max-width: 480px) {
+    .glass-box {
+        padding: 15px 10px; /* Further reduce padding on very small screens */
+    }
+
+    .title {
+        font-size: 28px; /* Further reduce title size */
+    }
+
+    .subtitle {
+        font-size: 16px; /* Adjust subtitle size */
+    }
+
+    .about-text {
+        font-size: 12px; /* Compact text for readability */
+    }
+
+    .button {
+        padding: 8px 20px; /* Compact buttons for smaller screens */
+    }
 }
