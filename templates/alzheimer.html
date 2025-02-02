@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Alzheimer Prediction</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/astyle.css') }}"/>
+</head>
+<body>
+
+    <div class="container-fluid h-100">
+        <div class="row">
+            <div class="chat">
+                <div class="card">
+                    <div class="card-header msg_head">
+                        <div class="d-flex bd-highlight">
+                            <div class="img_cont">
+                                <img
+                                    src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png"
+                                    class="rounded-circle user_img"
+                                />
+                                <div class="online_icon"></div>
+                            </div>
+                            <div class="user_info">
+                                <div class="dd">MediTrain AI</div>
+                                <p>Your Virtual Medical Assignment</p>
+                            </div>
+                            <div class="ml-auto">
+                                <a href="{{ url_for('diabetes') }}" class="btn btn-custom btn-custom-primary">
+                                    Diabates
+                                  </a>    
+                                <a href="{{ url_for('heartdisease') }}" class="btn btn-custom btn-custom-primary">
+                                Heart Disease
+                              </a>
+                              <a href="{{ url_for('alzheimer') }}" class="btn btn-custom btn-custom-primary">
+                                Alzheimer
+                              </a>
+                              <a href="{{ url_for('home') }}" class="btn btn-custom btn-custom-secondary">
+                                Home Page
+                              </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="messageFormeight" class="card-body msg_card_body">
+                        <div class="container">
+                            <div class="shadow">
+                                <h1 class="text-center">Alzheimer Prediction System</h1>
+                                <p class="text-center">Fill in the form below to predict the possibility of Alzheimer's.</p>
+
+                                <form method="POST" action="/alzheimer_predict">
+                                    <!-- Patient Information -->
+                                    <div class="mb-3">
+                                        <label for="age" class="form-label">Age:</label>
+                                        <input type="number" id="age" name="age" class="form-control" min="0" max="122" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="gender" class="form-label">Gender:</label>
+                                        <select id="gender" name="gender" class="form-select" required>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="education" class="form-label">Years of Education:</label>
+                                        <input type="number" id="education" name="education" class="form-control" min="0" required>
+                                    </div>
+
+                                    <hr>
+
+                                    <h3>Demographics</h3>
+                                    <div class="mb-3">
+                                        <label for="ethnicity" class="form-label"><b>Ethnicity:</b></label><br>
+                                        <input type="radio" id="ethnicity_hispanic" name="ethnicity" value="Hisp/Latino" required> Hisp/Latino
+                                        <input type="radio" id="ethnicity_not_hispanic" name="ethnicity" value="Not Hisp/Latino" required> Not Hisp/Latino
+                                        <input type="radio" id="ethnicity_unknown" name="ethnicity" value="Unknown" required> Unknown
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="race" class="form-label"><b>Race Category:</b></label><br>
+                                        <input type="radio" id="race_white" name="race" value="White" required> White
+                                        <input type="radio" id="race_black" name="race" value="Black" required> Black
+                                        <input type="radio" id="race_asian" name="race" value="Asian" required> Asian
+                                    </div>
+
+                                    <hr>
+
+                                    <h3>Genetic Information</h3>
+                                    <div class="mb-3">
+                                        <label for="apoe_allele" class="form-label">APOE Allele Type:</label>
+                                        <select id="apoe_allele" name="apoe_allele" class="form-select" required>
+                                            <option value="APOE4_0">APOE4_0</option>
+                                            <option value="APOE4_1">APOE4_1</option>
+                                            <option value="APOE4_2">APOE4_2</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="apoe_genotype" class="form-label">APOE4 Genotype:</label>
+                                        <select id="apoe_genotype" name="apoe_genotype" class="form-select" required>
+                                            <option value="2,2">2,2</option>
+                                            <option value="2,3">2,3</option>
+                                            <option value="2,4">2,4</option>
+                                            <option value="3,3">3,3</option>
+                                            <option value="3,4">3,4</option>
+                                            <option value="4,4">4,4</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="imputed_genotype" class="form-label"><b>Imputed Genotype:</b></label><br>
+                                        <input type="radio" id="imputed_true" name="imputed_genotype" value="True" required> True
+                                        <input type="radio" id="imputed_false" name="imputed_genotype" value="False" required> False
+                                    </div>
+
+                                    <hr>
+
+                                    <h3>Cognitive Assessment</h3>
+                                    <div class="mb-3">
+                                        <label for="mmse" class="form-label">MMSE Score:</label>
+                                        <input type="number" id="mmse" name="mmse" class="form-control" min="0" max="30" required>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary w-100">Predict</button>
+                                </form>
+
+                                {% if result %}
+                                    <div class="alert alert-info mt-4">
+                                        <h3 class="text-center">Prediction Result:</h3>
+                                        <p class="text-center">{{ result['predicted_condition'] }}</p>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

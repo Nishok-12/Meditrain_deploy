@@ -5,8 +5,8 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(38, 10, 91); 
-    background: linear-gradient(135deg, rgb(38, 10, 91), rgb(60, 0, 91), rgb(30, 10, 50));
+    background: rgb(0, 34, 102); 
+    background: linear-gradient(135deg, rgb(0, 34, 102), rgb(0, 51, 102), rgb(0, 21, 51));
     animation: gradient-shift 10s ease infinite;
     font-family: Arial, sans-serif;
 }
@@ -25,6 +25,7 @@ body, html {
     height: 100%; /* Full height for the body container */
     width: 100%;
 }
+
 .shadow {
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(10px);
@@ -33,36 +34,35 @@ body, html {
     width: 100%;
     max-width: 400px;
     /* Outer glow effect */
-    box-shadow: 0 0 10px rgba(182, 151, 255, 0.8), 0 0 20px rgba(170, 85, 255, 0.8);
-    border: 2px solid rgba(182, 151, 255, 0.8); /* Border to enhance glow */
+    box-shadow: 0 0 10px rgba(99, 180, 255, 0.8), 0 0 20px rgba(51, 153, 255, 0.8);
+    border: 2px solid rgba(99, 180, 255, 0.8); /* Border to enhance glow */
     transition: box-shadow 0.3s ease-in-out;
 }
 
 /* Glow intensifies on hover */
 .shadow:hover {
-    box-shadow: 0 0 40px rgba(170, 85, 255, 0.7), 0 0 80px rgba(170, 85, 255, 0.6);
+    box-shadow: 0 0 40px rgba(51, 153, 255, 0.7), 0 0 80px rgba(51, 153, 255, 0.6);
 }
-
 
 /* Glowing effect for page header */
 h3.page-header {
     color: white;
     text-align: center;
     margin-bottom: 30px;
-    text-shadow: 0 0 5px #b697ff, 0 0 10px #a784ff, 0 0 20px #9a6cff;
+    text-shadow: 0 0 5px #63b4ff, 0 0 10px #3399ff, 0 0 20px #1a7bff;
     font-size: 25px;
     padding-bottom: 10px;
 }
 
 /* Styling for input placeholders */
 input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: white;
     font-size: 14px;
 }
 
 /* Optional focus styling for input fields */
 input:focus::placeholder {
-    color: rgba(182, 151, 255, 0.9);
+    color: rgba(99, 180, 255, 0.9);
     transition: color 0.3s ease-in-out;
 }
 
@@ -77,7 +77,7 @@ label {
 
 input[type="text"], input[type="password"] {
     background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(182, 151, 255, 0.7);
+    border: 1px solid rgba(99, 180, 255, 0.7);
     color: white;
     border-radius: 25px;
     padding: 10px;
@@ -87,13 +87,13 @@ input[type="text"], input[type="password"] {
 }
 
 input[type="text"]:focus, input[type="password"]:focus {
-    border-color: rgba(170, 85, 255, 0.9);
-    box-shadow: 0 0 5px rgba(170, 85, 255, 0.9);
+    border-color: rgba(51, 153, 255, 0.9);
+    box-shadow: 0 0 5px rgba(51, 153, 255, 0.9);
 }
 
 input[type="submit"] {
     margin-top: 25px; 
-    background-color: rgba(170, 85, 255, 0.8);
+    background-color: rgba(51, 153, 255, 0.8);
     color: white;
     border: none;
     border-radius: 25px;
@@ -107,8 +107,8 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: rgba(182, 151, 255, 1);
-    box-shadow: 0 0 10px rgba(182, 151, 255, 1);
+    background-color: rgba(99, 180, 255, 1);
+    box-shadow: 0 0 10px rgba(99, 180, 255, 1);
 }
 
 /* Anchor buttons in the same row */
@@ -122,7 +122,7 @@ input[type="submit"]:hover {
 
 .anchor-row a {
     text-align: center;
-    background-color: rgba(170, 85, 255, 0.8);
+    background-color: rgba(51, 153, 255, 0.8);
     color: white;
     text-decoration: none;
     border-radius: 25px;
@@ -133,26 +133,25 @@ input[type="submit"]:hover {
 }
 
 .anchor-row a:hover {
-    background-color: rgba(182, 151, 255, 1);
-    box-shadow: 0 0 5px rgba(182, 151, 255, 1);
+    background-color: rgba(99, 180, 255, 1);
+    box-shadow: 0 0 5px rgba(99, 180, 255, 1);
 }
 
 /* Alerts with consistent theme */
 .alert {
     margin-bottom: 20px;
-    background-color: rgba(182, 151, 255, 0.2);
-    border-left: 4px solid rgba(170, 85, 255, 0.9);
+    background-color: rgba(99, 180, 255, 0.2);
+    border-left: 4px solid rgba(51, 153, 255, 0.9);
     color: white;
     padding: 10px;
     border-radius: 5px;
     font-size: 14px;
 }
 
-
 /* General styling for all input fields */
 input {
     background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(182, 151, 255, 0.7);
+    border: 1px solid rgba(99, 180, 255, 0.7);
     color: white;
     border-radius: 25px;
     padding: 10px;
@@ -163,14 +162,14 @@ input {
 
 /* Styling for focused input fields */
 input:focus {
-    border-color: rgba(170, 85, 255, 0.9);
-    box-shadow: 0 0 5px rgba(170, 85, 255, 0.9);
+    border-color: rgba(51, 153, 255, 0.9);
+    box-shadow: 0 0 5px rgba(51, 153, 255, 0.9);
 }
 
 /* General styling for select dropdown */
 select {
     background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(182, 151, 255, 0.7);
+    border: 1px solid rgba(99, 180, 255, 0.7);
     color: white;
     border-radius: 25px;
     padding: 10px;
@@ -178,7 +177,7 @@ select {
     outline: none;
     box-sizing: border-box;
     appearance: none; /* Hides default dropdown arrow */
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(182,151,255,1)"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="rgba(99,180,255,1)"><path d="M7 10l5 5 5-5z"/></svg>');
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 16px;
@@ -186,35 +185,33 @@ select {
     transition: all 0.3s ease-in-out;
 }
 
-
 /* Focus effect for select */
 select:focus {
-    border-color: rgba(170, 85, 255, 1);
-    box-shadow: 0 0 8px rgba(170, 85, 255, 1);
+    border-color: rgba(51, 153, 255, 1);
+    box-shadow: 0 0 8px rgba(51, 153, 255, 1);
     background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Style for dropdown options */
 select option {
-    background: rgba(38, 10, 91, 0.9); /* Matches the theme background */
+    background: rgba(0, 34, 102, 0.9); /* Matches the theme background */
     color: white;
     padding: 10px;
     border: none;
-    border-bottom: 1px solid rgba(182, 151, 255, 0.7);
+    border-bottom: 1px solid rgba(99, 180, 255, 0.7);
     transition: background-color 0.3s ease-in-out;
 }
 
 /* Hover effect for options */
 select option:hover {
-    background: rgba(170, 85, 255, 0.9);
+    background: rgba(51, 153, 255, 0.9);
 }
 
 /* Selected option styling */
 select option:checked {
-    background: rgba(182, 151, 255, 1);
+    background: rgba(99, 180, 255, 1);
     color: white;
 }
-
 
 /* Hide arrows (spinner buttons) for WebKit browsers (Chrome, Safari, Edge) */
 input[type="number"]::-webkit-inner-spin-button,
@@ -223,9 +220,155 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-
 /* For Edge */
 input[type="number"]::-ms-expand {
     display: none;
 }
+/* Inherit previous styles for body, html, container */
+body, html {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #003366, #00509E, #007BFF);
+    animation: gradient-shift 10s ease infinite;
+    font-family: "Arial", sans-serif;
+}
 
+/* Gradient animation */
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* Glassmorphic box styling */
+.glass-box {
+    height: 55vh;
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px 25px;
+    background: rgba(0, 250, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    border: 2px solid rgba(173, 216, 230, 0.5);
+    box-shadow: 0 0 25px rgba(0, 102, 204, 0.5), 0 0 50px rgba(0, 153, 255, 0.4);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Glow effect intensifies on hover */
+.glass-box:hover {
+    box-shadow: 0 0 35px rgba(0, 102, 204, 1), 0 0 70px rgba(0, 153, 255, 1);
+}
+
+/* Title with glow */
+.title {
+    color: white;
+    font-size: 46px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-shadow: 0 0 12px rgba(0, 153, 255, 1), 0 0 25px rgba(0, 102, 204, 1);
+}
+
+/* Subtitle with glow */
+.subtitle {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(0, 153, 255, 0.8);
+}
+
+/* About text with glow */
+.about-text {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    padding: 0 10px;
+    text-shadow: 0 0 5px rgba(0, 153, 255, 0.7);
+}
+
+/* Button group styling */
+.button-group {
+    display: flex;
+    gap: 25px;
+}
+
+/* Buttons with glowing effect */
+.button {
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 12px 50px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(0, 102, 204, 0.85);
+    box-shadow: 0 0 12px rgba(0, 102, 204, 0.7), 0 0 22px rgba(0, 153, 255, 0.5);
+    width: 150px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Hover effect for buttons */
+.button:hover {
+    background-color: rgba(0, 153, 255, 1);
+    box-shadow: 0 0 18px rgba(0, 153, 255, 0.9), 0 0 28px rgba(0, 102, 204, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .glass-box {
+        height: auto;
+        width: 85vw;
+        padding: 20px 15px;
+    }
+    .title { font-size: 36px; }
+    .subtitle { font-size: 18px; }
+    .about-text { font-size: 14px; }
+    .button { padding: 10px 30px; font-size: 13px; width: auto; }
+    .button-group { gap: 15px; }
+}
+
+@media (max-width: 480px) {
+    .glass-box { padding: 15px 10px; }
+    .title { font-size: 30px; }
+    .subtitle { font-size: 16px; }
+    .about-text { font-size: 12px; }
+    .button { padding: 8px 20px; }
+}
+
+.button1 {
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    padding: 20px 50px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(0, 102, 204, 0.85);
+    box-shadow: 0 0 12px rgba(0, 102, 204, 0.7), 0 0 22px rgba(0, 153, 255, 0.5);
+    width: 150px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* Hover effect for buttons */
+.button1:hover {
+    background-color: rgba(0, 153, 255, 1);
+    box-shadow: 0 0 18px rgba(0, 153, 255, 0.9), 0 0 28px rgba(0, 102, 204, 0.8);
+}

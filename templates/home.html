@@ -1,32 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
     <title>MediTrain AI</title>
     <link
-    rel="stylesheet"
-    type="text/css"
-    href="{{ url_for('static', filename='css/hstyle.css') }}"
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
     />
-</head>
-<body>
-    <div class="container">
-        <div class="glass-box">
-            <h1 class="title">MediTrain AI</h1>
-            <h3 class="subtitle">Your Virtual Medical Assistant</h3>
-            <p class="about-text">
-                MediTrain AI is an advanced medical assistant designed to revolutionize healthcare by providing intelligent, accurate, and personalized solutions. 
-                It empowers both doctors and patients by leveraging advancements in Artificial Intelligence and Natural Language Processing. With MediTrain AI, 
-                users can experience seamless interaction, real-time diagnosis, tailored treatment suggestions, and communication that bridges the gap 
-                between technology and healthcare. Step into the future of healthcare with MediTrain AI and transform the way you experience medical assistance!
-            </p>
-            <div class="button-group">
-                <a href="{{ url_for('lpage') }}" class="button">Login</a>
-                <a href="{{ url_for('index') }}" class="button">Quick Chat as Patient</a>
-                <a href="{{ url_for('pindex') }}" class="button">Quick Chat as Doctor</a>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/hstyle.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="container-fluid h-100">
+      <div class="row">
+        <div class="chat">
+          <div class="card">
+            <div class="card-header msg_head">
+              <div class="d-flex bd-highlight">
+                <div class="img_cont">
+                  <img
+                    src="https://i.ibb.co/fSNP7Rz/icons8-chatgpt-512.png"
+                    class="rounded-circle user_img"
+                  />
+                  <div class="online_icon"></div>
+                </div>
+                <div class="user_info">
+                  <div class="dd">MediTrain AI</div>
+                  <p>Your Virtual Medical Assignment</p>
+                </div>
+                <div class="ml-auto">
+                  <a href="{{ url_for('lpage') }}" class="btn btn-custom btn-custom-primary">
+                    Login
+                  </a>
+                  <a href="{{ url_for('pindex') }}" class="btn btn-custom btn-custom-primary">
+                    Quick Chat as Doctor
+                  </a>
+                  <a href="{{ url_for('index') }}" class="btn btn-custom btn-custom-primary">
+                    Quick Chat as Patient
+                  </a>
+                  <a href="{{ url_for('diabetes') }}" class="btn btn-custom btn-custom-primary">
+                    Quick Diagnosis
+                  </a>
+                </div>
+              </div>
             </div>
+            <div id="messageFormeight" class="card-body msg_card_body">
+              <div class="pro">
+                <h4>About</h4>
+                <p>MediTrain AI is an advanced medical assistant designed to revolutionize healthcare by providing intelligent, accurate, and personalized solutions. It empowers both doctors and patients by leveraging cutting-edge advancements in artificial intelligence and natural language processing. With MediTrain AI, users can experience seamless interactions, real-time diagnosis, and tailored treatment suggestions. By analyzing vast medical databases, it identifies patterns and provides evidence-based recommendations, enhancing medical decision-making with precision. Its intuitive chatbot interface ensures effortless communication, while its machine learning models continuously evolve to deliver the most up-to-date insights. Beyond diagnostics and treatment guidance, 
+                  MediTrain AI streamlines administrative tasks, reducing the workload on healthcare professionals and improving efficiency in patient care. From symptom analysis and medication guidance to post-treatment follow-ups, it offers a holistic approach to digital healthcare. By integrating AI-powered healthcare solutions, MediTrain AI bridges the gap between technology and medicine, ensuring accessible, reliable, and proactive medical support. Step into the future of healthcare with MediTrain AI and experience medical assistance that prioritizes innovation, accuracy, and patient well-being.</p>
+                </div>    
+              <div class="history">Features</div>
+              <div class="cards">
+                <div class="doctor">
+                    <H4>Chat As  Doctor</H4>
+                    <p>The "Chat as Doctor" feature enables users to practice diagnosing virtual patients by simulating real-world medical scenarios. Users take on the role of a doctor, interact with patients, and analyze symptoms to make informed diagnoses. The AI evaluates the user's diagnostic decisions, providing real-time feedback and scoring accuracy. This feature helps improve diagnostic and treatment skills through interactive practice.</p>
+                </div>
+                <div class="doctor">
+                    <H4>Chat As  Patient</H4>
+                    <p>The "Chat as Patient" feature enables users to act as patients, describing their symptoms to the AI, which functions as the doctor. The AI diagnoses the condition based on the provided symptoms and delivers a treatment plan, offering medical advice. This interactive feature helps users understand potential diagnoses, receive treatment suggestions, and gain insight into healthcare processes.</p>
+                </div>
+              </div>
+              <div class="cards">
+                <div class="doctor">
+                    <H4>Quick Diagnosis</H4>
+                    <p>The "Quick Diagnosis" feature enables fast identification of specific diseases like Alzheimer's, heart disease, and diabetes. By analyzing key symptoms and medical history, the AI provides rapid and accurate diagnoses. This feature aims to offer users quick insights into these critical conditions, helping them understand potential health issues and guiding further medical consultation or treatment.</p>
+                </div>
+                <div class="doctor">
+                    <H4>Profile and History</H4>
+                    <p>The "Profile and History" feature allows users to maintain a detailed record of their medical background, including past diagnoses, treatments, allergies, and family medical history. This feature helps in providing personalized diagnoses, treatment plans, and better management of health. It allows users to track their symptoms, conditions, and treatments over time for more informed healthcare decisions.</p>
+                </div>
+              </div>
+              <div class="pro">
+                    <h4>Medical Disclaimer</h4>
+                   <p>The information provided by this AI is for informational purposes only and should not be construed as medical advice, diagnosis, or treatment. ⚠️ While the AI offers general health insights based on user inputs, it is not a substitute for professional medical evaluation or care. Always consult with a licensed healthcare professional 🏥 for personalized advice, diagnosis, or treatment. This AI is designed to assist in understanding medical concepts, but its guidance should not be relied upon as a sole basis for healthcare decisions. Users are encouraged to seek medical attention from qualified professionals for accurate diagnosis and treatment.</p>
+                </div>  
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

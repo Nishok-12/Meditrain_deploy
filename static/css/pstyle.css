@@ -1,10 +1,9 @@
 
-
 body, html {
     height: 98%;
     margin: 0;
-    background: rgb(44, 47, 59);
-    background: linear-gradient(135deg, rgb(38, 10, 91), rgb(60, 0, 91), rgb(30, 10, 50));
+    background: rgb(0, 51, 102);
+    background: linear-gradient(135deg, #003366, #00509E, #007BFF);
     animation: gradient-shift 10s ease infinite;
 }
 
@@ -15,15 +14,12 @@ body, html {
     100% { background-position: 0% 50%; }
 }
 
-
-
 .chat {
     height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-  
 }
 
 .card {
@@ -34,7 +30,6 @@ body, html {
     backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
-
 }
 
 .msg_card_body {
@@ -49,8 +44,7 @@ body, html {
     border-radius: 0 !important;
     border-bottom: 0 !important;
     padding-top: 10px;
-    background: -webkit-linear-gradient(to right, rgb(38, 10, 91), rgb(60, 0, 91), rgb(30, 10, 50)); /* Purple gradient */
-    background: linear-gradient(to right, rgb(38, 10, 91), rgb(60, 0, 91), rgb(30, 10, 50)); /* Purple gradient */
+    background: linear-gradient(to right, #003366, #00509E, #007BFF); /* Blue gradient */
     color: white;
     backdrop-filter: blur(10px);
 }
@@ -77,7 +71,7 @@ body, html {
 
 .send_btn {
     border-radius: 50%;
-    background-color: rgba(170, 85, 255, 0.4); /* Soft purple background */
+    background-color: rgba(0, 128, 255, 0.4); /* Soft blue background */
     border: none;
     color: white;
     cursor: pointer;
@@ -90,16 +84,16 @@ body, html {
     margin-left: 5px; /* Space between input box and button */
 }
 
-/* Send button hover effect with lavender glow */
+/* Send button hover effect with light blue glow */
 .send_btn:hover {
-    box-shadow: 0 0 10px rgba(182, 151, 255, 1); /* Lavender glow */
-    background-color: rgba(182, 151, 255, 0.8); /* Slightly brighter on hover */
+    box-shadow: 0 0 10px rgba(0, 128, 255, 1); /* Blue glow */
+    background-color: rgba(0, 128, 255, 0.8); /* Slightly brighter on hover */
 }
 
-/* Send button active (clicked) effect with lavender glow */
+/* Send button active (clicked) effect with blue glow */
 .send_btn:active {
-    box-shadow: 0 0 20px rgba(182, 151, 255, 1); /* More intense lavender glow when clicked */
-    background-color: rgba(182, 151, 255, 1); /* Full lavender on click */
+    box-shadow: 0 0 20px rgba(0, 128, 255, 1); /* More intense blue glow when clicked */
+    background-color: rgba(0, 128, 255, 1); /* Full blue on click */
 }
 
 .user_img_msg {
@@ -119,7 +113,7 @@ body, html {
     width: 100%;
     border: 1.5px solid #f5f6fa;
     border-radius: 50%;
-    box-shadow: 0 0 2.5px 2.5px rgba(182, 151, 255, 0.9);
+    box-shadow: 0 0 2.5px 2.5px rgba(0, 128, 255, 0.9);
 }
 
 .online_icon {
@@ -147,14 +141,14 @@ body, html {
 .dd {
     font-size: 22px;
     color: white;
-    text-shadow: 0 0 8px rgba(182, 151, 255, 1), 0 0 10px rgba(182, 151, 255, 1); /* Glow effect */
+    text-shadow: 0 0 8px rgba(0, 128, 255, 1), 0 0 10px rgba(0, 128, 255, 1); /* Blue glow effect */
 }
 
 .user_info p {
     font-size: 12.7px;
     color: white;
-	padding-left: 7px;
-    text-shadow: 0 0 8px rgba(182, 151, 255, 1), 0 0 10px rgba(182, 151, 255, 1); /* Glow effect */
+    padding-left: 7px;
+    text-shadow: 0 0 8px rgba(0, 128, 255, 1), 0 0 10px rgba(0, 128, 255, 1); /* Blue glow effect */
 }
 
 .msg_cotainer {
@@ -162,7 +156,7 @@ body, html {
     margin-bottom: auto;
     margin-left: 10px;
     border-radius: 25px;
-    background-color: rgba(182, 151, 255, 0.4); /* Lavender glassmorphism */
+    background-color: rgba(0, 128, 255, 0.4); /* Blue glassmorphism */
     padding: 10px;
     position: relative;
     white-space: pre-line;
@@ -175,7 +169,7 @@ body, html {
     margin-bottom: auto;
     margin-right: 10px;
     border-radius: 25px;
-    background-color: rgba(170, 85, 255, 0.4); /* Soft purple for AI message */
+    background-color: rgba(0, 128, 255, 0.4); /* Soft blue for AI message */
     padding: 10px;
     position: relative;
     white-space: pre-line;
@@ -203,8 +197,8 @@ body, html {
     .chat {
         flex-direction: column;
     }
-    
 }
+
 
 .btn-custom {
     font-size: 14.4px;
@@ -216,16 +210,16 @@ body, html {
 }
 
 .btn-custom-primary {
-    background-color: #6a1b9a; /* Purple */
+    background-color:#004A88; /* Purple */
     color: white;
     border: none;
 }
 
 .btn-custom-primary:hover {
-    background-color: #4a148c; /* Darker purple */
+    background-color:#004A88; /* Darker purple */
 	color: white;
     text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1); /* Bright white glow effect */
-
+    transform: scale(1.05); /* Zoom-out effect */
 }
 
 .btn-custom-secondary {
@@ -237,7 +231,7 @@ body, html {
 .btn-custom-secondary:hover {
 	background-color: #8B0000;  /* Darker purple */
 	color: white;
-
+    transform: scale(1.05); /* Zoom-out effect */
 }
 
 /* Styling the scrollbar */
@@ -248,22 +242,19 @@ body, html {
 
 /* Styling the scrollbar track */
 ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.3); /* Dark track */
+    background: rgba(0, 0, 0, 0.3);
     border-radius: 10px; /* Rounded corners */
     backdrop-filter: blur(10px); /* Glassmorphism effect */
 }
 
 /* Styling the scrollbar handle */
 ::-webkit-scrollbar-thumb {
-    background: rgba(182, 151, 255, 0.7); /* Lavender color for the thumb */
+    background: rgba(0, 120, 255, 0.7); /* Vibrant Blue */
     border-radius: 10px; /* Rounded corners */
     backdrop-filter: blur(10px); /* Glassmorphism effect */
+    box-shadow: 0 0 8px rgba(0, 150, 255, 0.8); /* Neon blue glow */
 }
 
-/* Styling the scrollbar handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(170, 85, 255, 0.9); /* Darker lavender when hovered */
-}
 
 .pro {
     display: flex;
@@ -271,7 +262,7 @@ body, html {
     align-items: center; /* Center items horizontally */
     justify-content: center; /* Center items vertically */
     margin-bottom: 20px;
-    background: rgba(182, 151, 255, 0.25); /* Lavender glassmorphism */
+    background: rgba(0, 123, 255, 0.25); 
     padding: 20px;
     border-radius: 15px; /* Smooth rounded corners */
     backdrop-filter: blur(10px); /* Glassmorphism effect */
@@ -279,9 +270,8 @@ body, html {
     text-align: center;
     transition: box-shadow 0.3s ease; 
 }
-
 .pro:hover {
-    box-shadow: 0 0 20px rgba(170, 85, 255, 0.7), 0 0 40px rgba(170, 85, 255, 0.6);
+    box-shadow: 0 0 20px rgba(0, 80, 158, 0.7), 0 0 40px rgba(0, 123, 255, 0.6);
 }
 
 .pimage img {
@@ -290,57 +280,55 @@ body, html {
     border-radius: 50%; /* Circular image */
     object-fit: cover;
     border: 2px solid rgba(255, 255, 255, 0.7); /* Semi-transparent white border */
-    box-shadow: 0 0 4px 4px rgba(182, 151, 255, 0.9); /* Lavender glow */
+    box-shadow: 0 0 4px 4px rgba(0, 123, 255, 0.9); /* Blue glow */
     margin-bottom: 15px; /* Spacing from the rest of the content */
 }
 
-
-
-.p1, .p2,.pid {
+.p1, .p2, .pid {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap within the container */
-    justify-content: space-between; /* Distribute spans across the row */
-    align-items: center; /* Center items vertically */
-    gap: 35px; /* Space between spans */
-    margin: 10px ;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+    margin: 10px;
 }
 
 span {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(105,27,154,0.8);/* Semi-transparent white background */
+    background-color: rgba(0, 80, 158, 0.8); /* Blue background */
     color: rgba(255, 255, 255, 1); /* Soft white text */
-    text-shadow: 0 0 8px rgba(182, 151, 255, 1), 0 0 10px rgba(182, 151, 255, 1); /* Glow effect */
+    text-shadow: 0 0 8px rgba(0, 123, 255, 1), 0 0 10px rgba(0, 123, 255, 1); /* Glow effect */
     padding: 10px 15px;
-    border-radius: 30px; /* Rounded corners for each box */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for boxes */
-    font-size: 16px; /* Consistent text size */
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
     font-weight: 500;
-    width: 450px; /* Set a fixed width for equal size */
-    height: 40px; /* Set a fixed height for equal size */
+    width: 450px;
+    height: 40px;
     text-align: center;
-    flex-shrink: 0; /* Prevent spans from shrinking */
-    box-shadow: 0 0 2.5px 2.5px rgba(182, 151, 255, 0.9); /* Lavender glow */
+    flex-shrink: 0;
+    box-shadow: 0 0 2.5px 2.5px rgba(0, 123, 255, 0.9); /* Blue glow */
 }
 
 .history {
     display: flex;
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 20px;
-    background: rgba(182, 151, 255, 0.25); /* Lavender glassmorphism */
+    background: rgba(0, 123, 255, 0.25); /* Blue glassmorphism */
     padding: 10px;
-    border-radius: 25px; /* Smooth rounded corners */
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     text-align: center;
     font-size: 22px;
     font-weight: bold;
-    color: white; /* Set the text color */
-    text-shadow: 0 0 12px rgba(182, 151, 255, 1), 0 0 20px rgba(182, 151, 255, 1); /* Glow effect */
-    box-shadow: 0 0 10px rgba(170, 85, 255, 0.7), 0 0 20px rgba(170, 85, 255, 0.6);
+    color: white;
+    text-shadow: 0 0 12px rgba(0, 123, 255, 1), 0 0 20px rgba(0, 123, 255, 1);
+    box-shadow: 0 0 10px rgba(0, 80, 158, 0.7), 0 0 20px rgba(0, 123, 255, 0.6);
 }
 
 /* Table Styling */
@@ -349,64 +337,67 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* Stack rows vertically */
+    flex-direction: column;
 }
 
 table {
-    width: 100%; /* Adjust the width as needed */
-    border-collapse: separate; /* Separate borders for rows */
-    border-spacing: 10px; /* Space between rows */
-    background: rgba(182, 151, 255, 0.25); /* Lavender glassmorphism */
-    backdrop-filter: blur(10px); /* Glassmorphism effect */
-    border-radius: 15px; /* Smooth rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px;
+    background: rgba(0, 123, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 20px;
 }
 
 th, td {
     padding: 15px;
     text-align: center;
     font-size: 16px;
-    color: white; /* Set the text color */
-    border-radius: 30px; /* Rounded corners for cells */
-    border-bottom: 1px solid rgba(182, 151, 255, 0.5); /* Soft border color */
+    color: white;
+    border-radius: 30px;
+    border-bottom: 1px solid rgba(0, 123, 255, 0.5);
 }
 
 th {
     font-size: 18px;
-    font-weight: bold; /* Bold text for table headers */
-    background: rgba(38, 10, 91, 0.5); /* Slightly darker background for headers */
-    text-shadow: 0 0 8px rgba(182, 151, 255, 1), 0 0 10px rgba(182, 151, 255, 1); /* Glow effect for headers */
+    font-weight: bold;
+    background: rgba(0, 50, 120, 0.5); /* Slightly darker blue for headers */
+    text-shadow: 0 0 8px rgba(0, 123, 255, 1), 0 0 10px rgba(0, 123, 255, 1);
 }
 
 td {
-    font-weight: normal; /* Regular weight for table data */
+    font-weight: normal;
 }
 
-/* Styling each row (tr) as a box */
 tr {
-    background: rgba(182, 151, 255, 0.35); /* Light lavender for rows */
-    padding: 10px; /* Padding inside each row */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow to make it appear as a box */
+    background: rgba(0, 123, 255, 0.35); /* Light blue for rows */
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Hover effect for rows */
 tr:not(:first-child):hover {
-    background-color: rgba(102, 51, 204, 0.7); /* Vibrant purple for hover */
+    background-color:rgba(0, 150, 255, 0.7); /* Vibrant blue for hover */
     cursor: pointer;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1); /* Bright white glow effect */
-    transform: scale(1.02); /* Slightly enlarge row on hover for emphasis */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1);
+    transform: scale(1.02);
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Optional: Styling for the table container (if you want it to have a border) */
+/* Optional: Styling for the table container */
 .table {
     border-radius: 15px;
     overflow: hidden;
     margin-top: 30px;
-    box-shadow: 0 0 10px rgba(170, 85, 255, 0.7), 0 0 20px rgba(170, 85, 255, 0.6);
+    box-shadow: 0 0 10px rgba(0, 80, 158, 0.7), 0 0 20px rgba(0, 123, 255, 0.6);
 }
+
+/* Background Gradient */
+body {
+    background: linear-gradient(135deg, #003366, #00509E, #007BFF);
+    color: white;
+}
+
 

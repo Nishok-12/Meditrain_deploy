@@ -19,6 +19,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: auto;
 }
 
 .history {
@@ -38,6 +39,7 @@ body, html {
     color: white;
     text-shadow: 0 0 12px rgba(0, 123, 255, 1), 0 0 20px rgba(0, 123, 255, 1);
     box-shadow: 0 0 10px rgba(0, 80, 158, 0.7), 0 0 20px rgba(0, 123, 255, 0.6);
+    overflow-y: auto;
 }
 
 h4{
@@ -50,8 +52,9 @@ h4{
     background: rgba(0, 0, 0, 0.4) !important;
     backdrop-filter: blur(10px);
     display: flex;
+    
     flex-direction: column;
-    overflow: hidden; /* Prevent content overflow */
+    overflow-y: auto;/* Prevent content overflow */
 }
 
 .msg_card_body {
@@ -185,34 +188,6 @@ h4{
     backdrop-filter: blur(10px);
 }
 
-.msg_cotainer_send {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: 10px;
-    border-radius: 25px;
-    background-color: rgba(0, 128, 255, 0.4);
-    padding: 10px;
-    position: relative;
-    white-space: pre-line;
-    max-width: 80vw;
-    backdrop-filter: blur(10px);
-}
-
-.msg_time {
-    position: absolute;
-    left: 0;
-    bottom: -15px;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 10px;
-}
-
-.msg_time_send {
-    position: absolute;
-    right: 0;
-    bottom: -15px;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 10px;
-}
 
 @media (max-width: 576px) {
     .chat {
@@ -272,66 +247,177 @@ h4{
     box-shadow: 0 0 8px rgba(0, 150, 255, 0.8);
 }
 
-.cards {
+/* Full-screen container */
+.container.mt-5 {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin: 2px;
-}
-
-.doctor {
-    width: 49%; /* 50% width with some space in between */
-    margin-bottom: 20px;
-    background-color:  rgba(0, 123, 255, 0.25); /* Blue glassmorphism */
-    padding: 20px;
-    border-radius: 15px;
-    backdrop-filter: blur(2px); /* Stronger blur effect */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    text-align: center; /* Center-align the text */
-}
-
-.doctor:hover {
-    transform: scale(1.05); /* Zoom effect on hover */
-    box-shadow: 0 0 20px rgba(0, 80, 158, 0.7), 0 0 40px rgba(0, 123, 255, 0.6);
-    backdrop-filter: blur(20px); /* Increase blur effect on hover */
-}
-
-.pro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    background: rgba(0, 123, 255, 0.25);
+    align-items: flex-start; /* Align to the top of the screen */
+    height: 100vh; /* Full viewport height */
+    flex-direction: column;
     padding: 20px;
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    background-color: #2e3b4e; /* Dark background for the form area */
     border-radius: 15px;
-    backdrop-filter: blur(15px); /* Increased blur for stronger glassmorphism effect */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Heading */
+h1, p {
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transform transition */
+    color: #f1f1f1;
+    font-weight: 600;
 }
 
-.pro:hover {
-    transform: scale(1.05); /* Zoom effect on hover */
-    box-shadow: 0 0 15px rgba(0, 80, 158, 0.7), 0 0 30px rgba(0, 123, 255, 0.6);
+/* Form container styling */
+form {
+    width: 100%;
+    max-width: 600px; /* Set a maximum width for the form */
+    margin: 0 auto; /* Center the form */
+    background-color: #3c4a5a; /* Lighter background for the form */
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Allow scroll if needed */
 }
 
-.pro {
-    background: rgba(0, 123, 255, 0.3); /* Increased opacity for better glassmorphism */
-    border-radius: 15px;
-    backdrop-filter: blur(20px); /* More pronounced blur */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin-bottom: 25px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+/* Input Fields */
+.form-control, .form-select {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.pro:hover {
-    transform: scale(1.02); /* Zoom in slightly more on hover */
-    box-shadow: 0 0 25px rgba(0, 123, 255, 0.7), 0 0 50px rgba(0, 80, 158, 0.6);
-    backdrop-filter: blur(25px); /* Increase blur effect on hover */
+/* Placeholder styling */
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Labels */
+.form-label {
+    font-weight: 500;
+    color: white;
+}
+
+/* Radio Buttons */
+.form-check-label {
+    color: white;
+}
+
+/* Button Style */
+.btn-primary {
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    transition: 0.3s ease;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Alert Box for Prediction Result */
+.alert-info {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+/* Spacing for form fields */
+.form-check, .form-select {
+    margin-bottom: 10px;
+}
+
+/* Specific spacing for submit button */
+button[type="submit"] {
+    margin-top: 20px;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    transition: background 0.3s ease;
+    width: 100%; /* Ensure the button stretches to full width */
+}
+
+button[type="submit"]:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Ensuring form elements don't overflow */
+.form-control, .form-select, .btn-primary, button[type="submit"] {
+    max-width: 100%;
+
+}
+
+/* Make sure the submit button remains visible and the form has enough space */
+@media (max-height: 600px) {
+    .container.mt-5 {
+        overflow-y: scroll; /* Allow scrolling if the screen is too small */
+    }
+}
+
+/* Dropdown Box Styling */
+.form-select {
+    background: rgba(255, 255, 255, 0.2); /* Transparent background to match theme */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Light border to define the select box */
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px; /* Consistent font size */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dropdown Box Hover and Focus States */
+.form-select:hover,
+.form-select:focus {
+    background: rgba(255, 255, 255, 0.3); /* Slightly darker on hover/focus */
+    border-color: rgba(255, 255, 255, 0.6); /* Slightly brighter border on hover/focus */
+    outline: none; /* Remove the default focus outline */
+}
+
+/* Placeholder text in dropdown */
+.form-select option {
+    background: #3c4a5a; /* Matching background for options */
+    color: white;
+    padding: 10px;
+}
+
+/* Customize Dropdown Arrow */
+.form-select::-ms-expand {
+    display: none; /* Hide default arrow in Internet Explorer */
+}
+
+.form-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; /* Remove default dropdown arrow in most browsers */
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"%3E%3Cpath d="M4.5 0L3.09 1.41 7.67 6H0v1h7.67l-4.58 4.59L4.5 12l6-6z" fill="%23fff"/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+/* Dropdown option active state */
+.form-select option:checked {
+    background-color: rgba(255, 255, 255, 0.4); /* Active state color */
+}
+
+/* Spacing for dropdown to maintain alignment */
+.form-check, .form-select {
+    margin-bottom: 10px;
 }
 
 

@@ -10,6 +10,8 @@ from datetime import datetime
 import random
 from sklearn.preprocessing import LabelEncoder
 import re
+import numpy as np
+import pickle
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -696,5 +698,174 @@ def profile():
 
                     return render_template('profile.html',pdata=pdata,data=data,headings=headings)
 
+
+@app.route('/diabetes')
+def diabetes():
+    return render_template('diabetes.html')  # Or any content you want to display
+
+@app.route('/heartdisease')
+def heartdisease():
+    return render_template('heart_disease.html')
+
+@app.route('/alzheimer')
+def alzheimer():
+    return render_template('alzheimer.html')
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    try:
+        # Load the diabetes classifier model
+        model_directory = os.path.join(os.getcwd(), 'static', 'model')  # Assuming this is relative to the current script
+        d1_path = os.path.join(model_directory, 'diabetes.pkl')
+        diabetes_classifier  = joblib.load(d1_path)
+
+        if request.method == 'POST':
+            # Get input values from the form
+            glucose = int(request.form.get('glucose', 0))
+            bp = int(request.form.get('bloodpressure', 0))
+            st = int(request.form.get('skinthickness', 0))
+            insulin = int(request.form.get('insulin', 0))
+            bmi = float(request.form.get('bmi', 0))
+            dpf = float(request.form.get('dpf', 0))
+            age = int(request.form.get('age', 0))
+            
+            # Prepare data for prediction
+            data = np.array([[glucose, bp, st, insulin, bmi, dpf, age]])
+            data=data.reshape(1, -1)
+            
+            # Make the prediction
+            my_prediction = diabetes_classifier.predict(data)
+
+            # Interpret the prediction
+            if my_prediction[0] == 0:
+                output = "No Diabetes"
+            else:
+                output = "Diabetes"
+
+            # Render the template with the result
+            return render_template('diabetes.html', prediction_text="Result: {}".format(output))
+
+    except FileNotFoundError:
+        return "Model file not found. Please ensure 'voting_diabetes.pkl' is in the 'model/' directory.", 500
+    except Exception as e:
+        return f"An error occurred: {str(e)}", 500
+
+# heart disease
+@app.route('/heart_predict', methods=['POST'])
+def heart_predict():
+
+    model_directory = os.path.join(os.getcwd(), 'static', 'model')  # Assuming this is relative to the current script
+    h1_path = os.path.join(model_directory, 'hdp_model.pkl')
+    heartmodel  = joblib.load(h1_path)
+
+    try:
+        # Debug: Print received form data keys
+        # print("Form keys received:", request.form.keys())
+
+        # Collect form data
+        age = int(request.form['age'])
+        sex = int(request.form['sex'])
+        cp = int(request.form['cp'])
+        trestbps = int(request.form['trestbps'])
+        chol = int(request.form['chol'])
+        fbs = int(request.form['fbs'])
+        restecg = int(request.form['restecg'])
+        thalach = int(request.form['thalach'])
+        exang = int(request.form['exang'])
+        oldpeak = float(request.form['oldpeak'])
+        slope = int(request.form['slope'])
+        ca = int(request.form['ca'])
+        thal = int(request.form['thal'])
+
+        # Prepare the input data for prediction
+        input_data = np.array([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
+
+        # Make prediction
+        prediction = heartmodel.predict(input_data)[0]
+
+        # Map prediction to a human-readable result
+        result = "High risk of heart disease" if prediction == 1 else "Low risk of heart disease"
+
+        return render_template('heart_disease.html', prediction=result)
+
+    except Exception as e:
+        return render_template('heart_disease.html', prediction=f"An error occurred: {e}")
+
+# Alzheimer disease
+APOE_CATEGORIES = ['APOE Genotype_2,2', 'APOE Genotype_2,3', 'APOE Genotype_2,4', 
+                   'APOE Genotype_3,3', 'APOE Genotype_3,4', 'APOE Genotype_4,4']
+PTHETHCAT_CATEGORIES = ['PTETHCAT_Hisp/Latino', 'PTETHCAT_Not Hisp/Latino', 'PTETHCAT_Unknown']
+IMPUTED_CATEGORIES = ['imputed_genotype_True', 'imputed_genotype_False']
+PTRACCAT_CATEGORIES = ['PTRACCAT_Asian', 'PTRACCAT_Black', 'PTRACCAT_White']
+PTGENDER_CATEGORIES = ['PTGENDER_Female', 'PTGENDER_Male']
+APOE4_CATEGORIES = ['APOE4_0', 'APOE4_1', 'APOE4_2']
+ABBREVIATION = {
+    "AD": "Alzheimer's Disease ",
+    "LMCI": "Late Mild Cognitive Impairment ",
+    "CN": "Cognitively Normal"
+}
+CONDITION_DESCRIPTION = {
+    "AD": "This indicates that the individual's data aligns with characteristics commonly associated with "
+        "Alzheimer's disease. Alzheimer's disease is a progressive neurodegenerative disorder that affects "
+        "memory and cognitive functions.",
+    "LMCI": "This suggests that the individual is in a stage of mild cognitive impairment that is progressing "
+            "towards Alzheimer's disease. Mild Cognitive Impairment is a transitional state between normal "
+            "cognitive changes of aging and more significant cognitive decline.",
+    "CN": "This suggests that the individual has normal cognitive functioning without significant impairments. "
+        "This group serves as a control for comparison in Alzheimer's research."
+}
+# convert selected category into one-hot encoding
+def convert_to_one_hot(selected_category, all_categories, user_input):
+    one_hot = [1 if category == selected_category else 0 for category in all_categories]
+    user_input.extend(one_hot)
+
+model_directory = os.path.join(os.getcwd(), 'static', 'model')  # Assuming this is relative to the current script
+a1_path = os.path.join(model_directory, 'alzheimer_model.pkl')
+alzheimer_model  = joblib.load(a1_path)    
+
+
+def alzheimer_predict(input_data):
+    predictions = alzheimer_model.predict(input_data)
+    return predictions
+
+@app.route('/alzheimer_predict', methods=['POST'])
+def alzheimer_disease_predict():
+    # Extract data from the form
+    age = int(request.form['age'])
+    education = int(request.form['education'])
+    mmse = int(request.form['mmse'])
+    gender = request.form['gender']
+    ethnicity = request.form['ethnicity']
+    race_cat = request.form['race']
+    apoe_allele_type = request.form['apoe_allele']
+    apoe_genotype = request.form['apoe_genotype']
+    imputed_genotype = request.form['imputed_genotype']
+
+    # Initialize user input list
+    user_input = [age, education, mmse]
+
+    # Convert categorical fields to one-hot encoding
+    convert_to_one_hot("PTRACCAT_" + race_cat, PTRACCAT_CATEGORIES, user_input)
+    convert_to_one_hot("APOE Genotype_" + apoe_genotype, APOE_CATEGORIES, user_input)
+    convert_to_one_hot("PTETHCAT_" + ethnicity, PTHETHCAT_CATEGORIES, user_input)
+    convert_to_one_hot(apoe_allele_type, APOE4_CATEGORIES, user_input)
+    convert_to_one_hot("PTGENDER_" + gender, PTGENDER_CATEGORIES, user_input)
+    convert_to_one_hot("imputed_genotype_" + imputed_genotype, IMPUTED_CATEGORIES, user_input)
+
+    # Convert user input into a DataFrame
+    input_df = pd.DataFrame([user_input])
+
+    # Make prediction
+    predicted_condition = alzheimer_predict(input_df)
+
+    # Prepare the result
+    result = {
+        "predicted_condition": f"{ABBREVIATION[predicted_condition[0]]} ({predicted_condition[0]}) - {CONDITION_DESCRIPTION[predicted_condition[0]]}"
+    }
+
+    # Return the template with the result
+    return render_template('alzheimer.html', result=result)
+
+
 if __name__ == '__main__':
-    app.run(host="0.0.0.0",port=9999)
+    app.run(debug=True,port=9999)
